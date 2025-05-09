@@ -13,7 +13,6 @@ class LoginPage extends StatelessWidget {
   final _storage = FlutterSecureStorage();// token
 
 
-
 //funcao que cria o login 
   Future<void> _login(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
