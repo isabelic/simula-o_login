@@ -1,11 +1,21 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
-  runApp(MaterialApp(home: LoginPage()));
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Supabase.initialize(
+    url: 'https://nyqzzjztnaiiwxvjezmv.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55cXp6anp0bmFpaXd4dmplem12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDczNTQ5MjEsImV4cCI6MjA2MjkzMDkyMX0.imG_lipIwP69c8fMRpx4wt-SKYONDnqtylePPoM3TH4',
+  );
+   runApp(MaterialApp(home: LoginPage()));
 }
+
 // tela de login 
 class LoginPage extends StatelessWidget {
+  
   // variaveis 
   final _formKey = GlobalKey<FormState>();// verifica se há algo no campo
   final _email = TextEditingController();
